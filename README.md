@@ -24,11 +24,21 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 
 ## 【当前公开内容】
 
-本仓库公开 **V1.0 beta 的程序源码、构建说明、兼容性研究记录和测试数据**，并展示开发者提供的原始光盘照片。游戏 ROM、原盘菜单、光盘镜像和可执行程序未包含在此次源码推送中。
+本仓库公开 **V1.0 beta 的程序源码、构建说明、兼容性研究记录和测试数据**，并展示开发者提供的原始光盘照片。程序源码与构建说明已公开；原始光盘镜像和菜单压缩包见下方【光盘镜像与菜单】。仓库不包含预先编译的可执行程序，也不单独提交提取后的游戏 ROM。
 
 使用可运行版本时，需要在同一目录保留 `VCD300.exe`、内核与依赖 DLL、`menus` 和 `roms`。本仓库的 **Code → Download ZIP 下载的是源码，不能直接双击运行**。
 
-原盘的游戏数据可通过 `source/convert_disc.py` 从你提供的镜像中提取；菜单素材需另行准备。程序默认面向 Windows 10 / 11 x64。
+原盘的游戏数据可通过 `source/convert_disc.py` 从下方提供的镜像中提取；菜单素材可使用同处提供的 `menus.7z`。程序默认面向 Windows 10 / 11 x64。
+
+## 【光盘镜像与菜单】
+
+提供开发者上传的《中文游戏300》原始光盘镜像，便于复现数据提取过程。
+
+- [下载原始 ISO 压缩包（约 26.7 MiB）](https://github.com/MattUan/VCD300-CHS-Games-Simulator/raw/refs/heads/main/disc/Chinese-Games-300.iso.zip)
+- 解压后得到 `Chinese-Games-300.iso`，原始大小 **57,158,304 字节**。
+- 镜像 SHA-256：`1998cb8675e6ec10afbf052be9fc1329405a0dcb99708349c0be610c34e42d63`。
+- [下载原始菜单压缩包 menus.7z](https://github.com/MattUan/VCD300-CHS-Games-Simulator/raw/refs/heads/main/disc/menus.7z)，含完整30页菜单，解压至程序根目录的 `menus` 文件夹。
+- [校验与数据准备说明](disc/README.md)。镜像用于提取 ROM，程序运行时无需挂载。
 
 ## 【操作说明】
 
@@ -82,7 +92,8 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 | `source/headless.cpp` | 原生内核接口与原盘兼容处理 |
 | `source/Fetch-Core.ps1` / `core-overrides` | 固定 FCEUX 上游版本及本项目全部内核修改 |
 | `source/convert_disc.py` | 原始镜像提取与转换工具 |
-| `menus` / `roms`（需自行准备） | 程序运行所需的原盘菜单与游戏数据，不在本仓库内 |
+| `disc` | 原盘 ISO 压缩包与30页菜单压缩包，含校验和准备说明 |
+| `menus` / `roms`（解压或提取生成） | 程序运行所需的菜单与游戏数据 |
 | `licenses` | 第三方许可和版权声明 |
 
 在 Windows PowerShell 中执行 `./source/Build-App.ps1` 可重新编译界面程序。原生内核先执行 `./source/Fetch-Core.ps1` 获取固定版本 FCEUX 并应用本项目的 8 个修改文件，再使用 Visual Studio C++ 工具链、Windows SDK 和 Python 构建，详细步骤见 [source/README.md](source/README.md)。原盘结构与兼容处理见[逆向记录](source/REVERSE-ENGINEERING.md)。
@@ -93,6 +104,6 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 
 模拟器内核基于 **FCEUX 2.7.0**，感谢 FCEUX 团队及其贡献者。软件源码按 **GNU GPL v2 或更新版本（GPL-2.0-or-later）** 提供，详见 [LICENSE](LICENSE) 和 [licenses](licenses)。第三方组件按各自许可提供。
 
-可运行版本所用游戏 ROM 与原始菜单提取自《中文游戏300》VCD 光盘；此次源码推送不包含这些游戏数据。光盘照片由开发者提供。**软件的开源许可不代表游戏 ROM、光盘图像或原盘素材的再分发授权**；这些内容的权利归其各自权利人所有。
+可运行版本所用游戏 ROM 与原始菜单提取自《中文游戏300》VCD 光盘；游戏数据以原始镜像形式提供，需自行提取 ROM 并解压菜单压缩包。光盘照片由开发者提供。**软件的开源许可不代表游戏 ROM、光盘图像或原盘素材的再分发授权**；这些内容的权利归其各自权利人所有。
 
 希望你再次按下 START 时，还能想起电视机前那个下午。
