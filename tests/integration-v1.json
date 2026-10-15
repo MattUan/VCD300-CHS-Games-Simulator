@@ -1,0 +1,20 @@
+[
+  {
+    "game": 3,
+    "vcd": true,
+    "loading_ms": 2016,
+    "result": "PASS: native gameplay, same window, return to menu, IME scope restored"
+  },
+  {
+    "game": 122,
+    "vcd": true,
+    "loading_ms": 2016,
+    "result": "PASS: native gameplay, same window, return to menu, IME scope restored"
+  },
+  {
+    "game": 199,
+    "vcd": false,
+    "loading_ms": 2006,
+    "result": "PASS: native gameplay, same window, return to menu, IME scope restored"
+  }
+]

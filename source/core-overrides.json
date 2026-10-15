@@ -1,0 +1,14 @@
+{
+  "upstream": "https://github.com/TASEmulators/fceux.git",
+  "commit": "8cdbeeb248f5a13aa97a58b4a0437ae13fb6aea8",
+  "sha256": {
+    "src/emufile.cpp": "0ec291870d67dcbeabe3f27fb7dd8f238a8a32a76b06abb936742b0a5325ebfc",
+    "src/fceu.cpp": "ddbad334e2ff74452845b8772b16a650607f68c3ca8c4f6a4837a99b7f507c25",
+    "src/input.cpp": "15e0012a5aeec72fb28d66eb74d15ce86fc8afdd33633face90fec784c632cce",
+    "src/sound.cpp": "46883fcaa5f7fbe5a34f9258abef71b631c4b13709ad065129769c6a268fc3ca",
+    "src/x6502.cpp": "af5c5cb0a51006323aa96dc2f2c97a456728815c272f21cddd71c7ad95bdc7cb",
+    "src/utils/memory.cpp": "f6997994d027bb7b2ff8dcac0c2384a76ed80ff67dce6ffe181d076b4ab411e2",
+    "src/utils/mutex.cpp": "814aea1d3eee6bc46d3ab571fa82e033cdfe93aed10db3bc5240e138de109ad8",
+    "src/utils/timeStamp.cpp": "802157f086fffd45b7f7f0eeffae0f4a8704d490399ce373be894f5dd47008ac"
+  }
+}

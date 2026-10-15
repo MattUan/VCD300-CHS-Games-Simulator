@@ -1,0 +1,101 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: zlib
+Source: http://zlib.net/
+Files-Excluded:
+ contrib/amd64
+ contrib/delphi
+ contrib/dotzlib
+ contrib/iostream
+ contrib/iostream2
+ contrib/iostream3
+ contrib/testzlib
+ contrib/untgz
+ contrib/vstudio
+ doc/rfc1950.txt
+ doc/rfc1951.txt
+ doc/rfc1952.txt
+
+Files: *
+Copyright: 1995-2024 Jean-loup Gailly and Mark Adler
+           1998 Andreas R. Kleinert
+License: Zlib
+
+Files: contrib/ada/*
+Copyright: 2002-2004 Dmitriy Anisimkov
+License: GPL-2+-with-exception
+
+Files: contrib/gcc_gvmat64/gvmat64.S
+Copyright: 1995-2010 Jean-loup Gailly, Brian Raiter and Gilles Vollant
+License: Zlib
+
+Files: contrib/minizip/*
+Copyright: 1998-2010 Gilles Vollant
+           2007-2008 Evan Rouault
+           2009-2010 Mathias Svensson
+License: Zlib
+
+Files: contrib/pascal/*
+Copyright: 1995-2003 Jean-loup Gailly and Mark Adler
+           1998 Bob Dellaca
+           1998-2000 Jacques Nomssi Nzali
+           2003 Cosmin Truta
+License: Zlib
+
+Files: debian/*
+Copyright: 2016-2018, 2021-2024 Stephen Kitt
+License: Zlib
+
+
+License: Zlib
+ This software is provided 'as-is', without any express or implied
+ warranty.  In no event will the authors be held liable for any damages
+ arising from the use of this software.
+ .
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute it
+ freely, subject to the following restrictions:
+ .
+ 1. The origin of this software must not be misrepresented; you must not
+ claim that you wrote the original software. If you use this software
+ in a product, an acknowledgment in the product documentation would be
+ appreciated but is not required.
+ 2. Altered source versions must be plainly marked as such, and must not be
+ misrepresented as being the original software.
+ 3. This notice may not be removed or altered from any source distribution.
+ .
+ Jean-loup Gailly        Mark Adler
+ jloup@gzip.org          madler@alumni.caltech.edu
+ .
+ If you use the zlib library in a product, we would appreciate *not* receiving
+ lengthy legal documents to sign.  The sources are provided for free but without
+ warranty of any kind.  The library has been entirely written by Jean-loup
+ Gailly and Mark Adler; it does not include third-party code.
+ .
+ If you redistribute modified sources, we would appreciate that you include in
+ the file ChangeLog history information documenting your changes.  Please read
+ the FAQ for more information on the distribution of modified source versions.
+
+License: GPL-2+-with-exception
+ This library is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or (at
+ your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this library; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+ .
+ As a special exception, if other files instantiate generics from this
+ unit, or you link this unit with other files to produce an executable,
+ this  unit  does not  by itself cause  the resulting executable to be
+ covered by the GNU General Public License. This exception does not
+ however invalidate any other reasons why the executable file  might be
+ covered by the  GNU Public License.
+ .
+ On Debian systems, the complete text of the GNU General Public
+ License version 2 can be found in /usr/share/common-licenses/GPL-2.

@@ -1,0 +1,27 @@
+# Build outputs, local runtime data and original disc content
+*.exe
+*.dll
+*.lib
+*.exp
+*.obj
+*.pdb
+*.ilk
+*.nes
+*.BIN
+*.iso
+*.sav
+source/core-source/
+source/obj-msvc/
+source/link.rsp
+menus/
+roms/
+data/
+keys.txt
+pad.txt
+display.txt
+__pycache__/
+*.pyc
+志愿者测试表.csv
+志愿者测试说明.md
+
+*.a
