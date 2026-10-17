@@ -1,0 +1,4 @@
+Gtk not found (missing LD_LIBRARY_PATH to libgtk-x11-2.0.so.0?), using built-in colorscheme
+game=76-D3-88-82-7D-EF-D5-B5-93-CA-97-21-23-FB-0E-4E-C6-AD-31-B4-6D-88-8A-28-F3-05-49-8F-34-BE-62-7C
+PASS menu effect ratio=0.479
+PASS audio high-frequency attenuation, quantization, continuous buffer state

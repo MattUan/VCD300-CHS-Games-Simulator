@@ -1,0 +1,23 @@
+PASS Windows joystick struct sizes
+PASS no phantom direction for absent POV or 0..255 axes
+PASS USB physical button 7 -> SELECT
+PASS USB physical button 7 -> START after remap
+PASS USB physical button 8 -> START
+PASS USB physical button 8 -> SELECT after remap
+PASS USB button 32 bit handling
+PASS driver-reported axis scaling
+PASS POV diagonal when supported
+PASS centered POV
+PASS XInput uses the configured SELECT/START map
+PASS XInput START logical button 8
+PASS keyboard + single pad assigned to 2P
+PASS single pad assigned to 1P + keyboard
+PASS unplugged pad does not steal keyboard or other player
+PASS disconnected device clears pad input
+PASS invalid button mappings rejected
+PASS explicit device IDs and slot gaps
+PASS legacy mapping migration does not auto-assign pads
+PASS independent player mode/device/button persistence
+PASS reverse device assignment persists
+PASS duplicate device configuration rejected
+ALL 22 input checks passed

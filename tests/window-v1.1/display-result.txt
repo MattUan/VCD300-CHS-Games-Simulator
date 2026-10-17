@@ -1,0 +1,6 @@
+PASS title without Chinese brackets and embedded application icon
+PASS native resize constraints on all 8 edges and corners
+PASS programmatic resize normalized to 4:3 game viewport
+PASS fullscreen fills display, hides all footer rows and centers 4:3 image
+PASS fullscreen exit restores window size and footer
+PASS repeated fullscreen transitions

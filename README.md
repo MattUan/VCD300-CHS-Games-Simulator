@@ -1,8 +1,8 @@
-# 【中文游戏300 · VCD 游戏模拟器】
+# 【VCD300-GAME Simulator · VCD中文游戏300模拟器】
 
 **把那张黄色光盘里的游戏，重新带回 Windows。**
 
-V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-or-later
+V1.1 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-or-later
 
 <p align="center">
   <img src="docs/images/disc-cover.jpg" alt="《中文游戏300》原始光盘，黄色盘面上印着汤姆和杰瑞" width="380">
@@ -24,11 +24,21 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 
 ## 【当前公开内容】
 
-本仓库公开 **V1.0 beta 的程序源码、构建说明、兼容性研究记录和测试数据**，并展示开发者提供的原始光盘照片。程序源码与构建说明已公开；原始光盘镜像和菜单压缩包见下方【光盘镜像与菜单】。仓库不包含预先编译的可执行程序，也不单独提交提取后的游戏 ROM。
+本仓库公开 **V1.1 beta 的程序源码、构建说明、兼容性研究记录和测试数据**，并展示开发者提供的原始光盘照片。程序源码与构建说明已公开；原始光盘镜像和菜单压缩包见下方【光盘镜像与菜单】。本次提供升级补丁中的预编译主程序；不单独提交提取后的游戏 ROM。
 
-使用可运行版本时，需要在同一目录保留 `VCD300.exe`、内核与依赖 DLL、`menus` 和 `roms`。本仓库的 **Code → Download ZIP 下载的是源码，不能直接双击运行**。
+使用可运行版本时，需要在同一目录保留 `VCD300.exe`、内核与依赖 DLL、`menus` 和 `roms`。本仓库的 **Code → Download ZIP 不能代替完整运行目录**。已有 V1.0 beta / V1.0.1 beta 用户可使用下方补丁。
 
 原盘的游戏数据可通过 `source/convert_disc.py` 从下方提供的镜像中提取；菜单素材可使用同处提供的 `menus.7z`。程序默认面向 Windows 10 / 11 x64。
+
+## 【V1.1 beta 下载与更新】
+
+- [下载 V1.1 beta 升级补丁](https://github.com/MattUan/VCD300-CHS-Games-Simulator/raw/refs/heads/main/releases/VCD300-GAME_Simulator_v1.1-beta_patch.zip)
+- 适用于已能正常运行的 **V1.0 beta / V1.0.1 beta**。关闭程序，备份旧的 `VCD300.exe`，将补丁内同名文件覆盖到原运行目录即可。源码文件可按需同步。
+- 补丁不含内核 DLL、ROM、菜单及开发环境，不能单独运行。保留原运行目录里的这些文件。
+- 窗口内游戏画面按 **4:3** 等比例缩放；底部操作区另计。按 **F11** 全屏，隐藏底部按钮与提示，并在宽屏两侧补黑边；再次按 F11 返回。
+- 合并 V1.0.1 输入修复：1P / 2P 可分别选择键盘或具体手柄，支持两种混合组合，自定义 SELECT / START 编号对 USB 与 XInput 均生效。
+- 标题栏去除中文括号，加入原创黄色光盘与手柄图标。
+- [更新记录与验证范围](releases/V1.1-beta.md)。本版只做相关检查，未重跑全量游戏测试；未进行 Windows 实机或实体手柄验收。
 
 ## 【光盘镜像与菜单】
 
@@ -55,7 +65,7 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 | 全屏 / 窗口 | `F11` |
 | 手柄返回菜单 | 同时按住 `SELECT + START` 约 1 秒 |
 
-在【选项】中可修改两位玩家的键盘映射、传统 USB 手柄按钮编号，以及仿 VCD 效果。支持 XInput 手柄和兼容的传统 USB 手柄；不同型号仍需实际测试。
+在【选项】中分别选择 1P / 2P 的键盘或手柄操作方式、具体设备、键盘映射及手柄按钮编号，也可切换仿 VCD 效果。USB 编号对应 joy.cpl；XInput 使用标准逻辑编号，可点【开始检测按键】核对。进入支持双人的游戏后，在游戏标题页由 1P 的 SELECT（部分游戏用方向键）选择双人，再按 START。支持 XInput 手柄和兼容的传统 USB 手柄；不同型号仍需实际测试。
 
 ## 【熟悉的感觉，保留一点不完美】
 
@@ -89,6 +99,9 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 |---|---|
 | `source/VCD300.cs` | 中文菜单、输入、选项与关于页面 |
 | `source/NativePlayer.cs` | 内核调用、画面显示与音频输出 |
+| `source/InputDevices.cs` | 独立双人输入路由、USB / XInput 与配置迁移 |
+| `source/WindowGeometry.cs` | 4:3 视口和 Windows 缩放约束 |
+| `source/AppIcon.*` | 原创图标源码与 Windows 图标资源 |
 | `source/headless.cpp` | 原生内核接口与原盘兼容处理 |
 | `source/Fetch-Core.ps1` / `core-overrides` | 固定 FCEUX 上游版本及本项目全部内核修改 |
 | `source/convert_disc.py` | 原始镜像提取与转换工具 |
@@ -107,3 +120,4 @@ V1.0 beta · Windows 10 / 11 x64 · 中文界面 · 键盘 / 手柄 · GPL-2.0-o
 可运行版本所用游戏 ROM 与原始菜单提取自《中文游戏300》VCD 光盘；游戏数据以原始镜像形式提供，需自行提取 ROM 并解压菜单压缩包。光盘照片由开发者提供。**软件的开源许可不代表游戏 ROM、光盘图像或原盘素材的再分发授权**；这些内容的权利归其各自权利人所有。
 
 希望你再次按下 START 时，还能想起电视机前那个下午。
+

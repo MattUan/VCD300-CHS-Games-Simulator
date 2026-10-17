@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -44,7 +44,8 @@ sealed class GameDisplay:Control {
  static int Clamp(int value){return value<0?0:value>255?255:value;}
  protected override void OnPaint(PaintEventArgs e){
   e.Graphics.Clear(Color.Black);if(image==null)return;
-  int w=ClientSize.Width,h=ClientSize.Height;if(w<=0||h<=0)return;
+  Rectangle viewport=WindowGeometry.Fit(ClientSize);if(viewport.IsEmpty)return;
+  int w=viewport.Width,h=viewport.Height;GraphicsState canvas=e.Graphics.Save();e.Graphics.TranslateTransform(viewport.X,viewport.Y);
   Image frame=image;if(lowQuality){PrepareAnalog();frame=analog;}
   e.Graphics.InterpolationMode=InterpolationMode.NearestNeighbor;e.Graphics.PixelOffsetMode=PixelOffsetMode.Half;
   if(lowQuality&&menuMode){
@@ -61,6 +62,7 @@ sealed class GameDisplay:Control {
     }
    }else DrawOsd(e.Graphics,w,h);
   }
+  e.Graphics.Restore(canvas);
  }
  void DrawOsd(Graphics graphics,int w,int h){
   GraphicsState state=graphics.Save();float size=Math.Max(9.5f,h/18f);

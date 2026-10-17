@@ -1,12 +1,12 @@
-﻿# V1.0 beta 源码与复现
+# V1.1 beta 源码与复现
 
-本版应用和核心DLL均在Windows x64编译、运行验证。未使用GitHub Actions。
+V1.0 / V1.0.1 基线曾在 Windows x64 验证。本次 V1.1 beta 主程序通过 Mono C# 编译器生成 Windows x64 GUI 程序；针对性检查在 Linux Mono / Xvfb 下完成，尚未进行 Windows 实机验收。原生内核 DLL 不变。未使用 GitHub Actions。
 
 ## 应用
 
 执行 `Build-App.ps1`，使用Windows自带Framework64 C#编译器，生成上一级目录的VCD300.exe。无NuGet依赖。
 
-`VCD300.cs`负责菜单、内嵌设置/说明、键盘和手柄；`NativePlayer.cs`负责核心调用、后台运行、画面同步、WaveOut音频。
+`VCD300.cs` 负责菜单、设置、焦点和窗口模式；`InputDevices.cs` 负责独立双人输入与 USB / XInput；`WindowGeometry.cs` 负责 4:3 几何约束；`NativePlayer.cs` 负责核心调用、画面和音频。Build-App.ps1 编译这四个文件并将 AppIcon.ico 同时嵌入 Windows 资源及托管资源。
 
 ## 原生核心
 
@@ -41,7 +41,7 @@ python make_report.py "应用根目录"
 
 仅使用Python标准库。Windows原生DLL实际运行；按150款不同ROM去重，每款无输入/有输入各1800帧，四个工作进程，单项40秒超时。采集591、951、1791帧PNG、CPU停滞、输入读取、音频信号、特殊指令和换页次数。运行数据写入tests/runtime，仅用于开发检查。
 
-`tools/Run-AutoTests.ps1`及core-check.exe提供不安装Python的简化复测，只比较最终帧及基础指标，标记规则不完全相同。
+本次补丁不包含完整开发环境和历史自动测试工具。
 
 主程序支持 `--smoke-test` 和 `--integration-test --integration-game=2`；运行目录由环境变量VCD300_DATA_DIR指定，用于隔离测试。测试结果不等于完整游玩或声音正确性验证。
 
@@ -59,6 +59,10 @@ headless.cpp对Mapper 3的$8000–$FFFF和$6802均按原盘无总线冲突的方
 
 GameDisplay.MenuMode控制菜单的50%混合；游戏渲染路径未改动。OSD独立低分辨率透明层柔化。Player.LowQuality与界面开关同步，VcdAudioFilter保存跨缓冲状态，关闭时直接使用原始音频。默认仿真开启，但保留已有display.txt选择。
 
-## 【V1.0 beta效果实现】
 
-GameDisplay.MenuMode控制菜单的50%混合；游戏渲染路径未改动。OSD独立低分辨率透明层柔化。Player.LowQuality与界面开关同步，VcdAudioFilter保存跨缓冲状态，关闭时直接使用原始音频。默认仿真开启，但保留已有display.txt选择。
+## 【V1.1 beta 针对性验证】
+
+Windows 重建主程序仍使用 Build-App.ps1 和系统 .NET Framework 4.x 编译器，不依赖 Mono 运行时。TestInput.cs 检查双人输入路由和映射；TestGeometry.cs 检查 4:3、最小尺寸和拖拽锚点；TestViewport.cs 检查绘制和黑边。--display-smoke-test 检查标题、图标和全屏往返；该命令的黑边断言应在宽屏下运行。测试时使用 VCD300_DATA_DIR 隔离设置。
+
+本次 Linux UI 测试用单独的 dllmap / 原生空输入桩隔离 Windows API，这些仅用于检查环境，不随补丁分发。未调用原生游戏内核或进行全量回归；不能据此宣称实体手柄或 Windows 桌面拖拽已实机验收。详情见 releases/V1.1-beta.md。
+

@@ -1,0 +1,29 @@
+{
+  "version": "1.1 beta",
+  "package": "upgrade patch",
+  "supported_baselines": [
+    "1.0 beta",
+    "1.0.1 beta"
+  ],
+  "platform": "Windows 10/11 x64 / .NET Framework 4.x",
+  "native_core_unchanged": true,
+  "test_report": "tests/window-v1.1",
+  "native_core_sha256": "ce29cb1fa545199e1ee555f3f2040bf572698c5829d27320f96b57b44ca783be",
+  "build": "Mono C# compiler; Windows PE32+ GUI; see UPDATE.md for validation limits",
+  "sha256": {
+    "VCD300.exe": "9fd06bffb5016a48ae684a95df2cb0d612fd276e5f95e0a0a67e160dc1e1fa6e",
+    "UPDATE.md": "e7faf5f83e24f64d7f6c33a31325caebbf407d5ce01a2d593f8cdfe5e4c165a5",
+    "source/AppIcon.ico": "b85796bc4a8c1babd4b77fa81267affb644a4802d081893fcda7c197fee42da3",
+    "source/TestInput.cs": "145eedc499ab0ae17efbf23afb5a544ac93d91256129b37cb9832905f4839ad9",
+    "source/TestGeometry.cs": "84e6f53859ec45e003e31958b63ce81c73fa51dda79bb7bc122297e431b1a332",
+    "source/README.md": "94079c6c4acc90afea07d386293b20f260844364598a33a79810708d7af21371",
+    "source/InputDevices.cs": "0bdde619266141bfea7eadc5ff0a07ae15814268855a4c47b053eb58dcce0e6f",
+    "source/AppIcon.png": "d218c64fd994dcbc60157103bdc56dfbb0fb8c3076b2d52d85d74a13d41e66f9",
+    "source/WindowGeometry.cs": "8769c0c173329724e4697b9b515a539bd394a1449b4a5ce7e021ea7a79a9a7eb",
+    "source/TestViewport.cs": "f3f0afb466d95a8f99f1dba66ba3fdd8d4e252450803c6af8ba05ae155c1a6a7",
+    "source/VCD300.cs": "48d259ad8f9764a2824ac0c351337976cece840f2ff03dc0446985e4c6f3c597",
+    "source/Build-App.ps1": "5df3766dbd380a1167f9c3668781a0289502ea5a1c52243244b397617df54d6a",
+    "source/AppIcon.svg": "1c949191e9462a122efbbc703c7c7b053daa3e500ded81133626e020cea83452",
+    "source/NativePlayer.cs": "32d0f015b21ca345fe2483fa1c936eb2cca70d3b91ab240d9c50b3d02524055d"
+  }
+}
